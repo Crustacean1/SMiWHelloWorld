@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="RaspberryHelloWorld.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RaspberryHelloWorld"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="424*"/>
+            <ColumnDefinition Width="433"/>
+            <ColumnDefinition Width="423*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="941*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="SubmitField" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Default" VerticalAlignment="Top" Height="34" Width="197" TextAlignment="Center" Margin="0,429,0,0" TextChanged="TextBox_TextChanged_1" Grid.Column="1"/>
+        <TextBlock x:Name="NoteDisplayField" HorizontalAlignment="Center" Margin="0,361,0,0" Grid.Row="1" TextWrapping="Wrap" Text="No note selected" VerticalAlignment="Top" Height="35" Width="195" FontSize="20" TextAlignment="Center" SelectionChanged="TextBlock_SelectionChanged" Grid.Column="1"/>
+        <Button x:Name="SubmitButton" Content="Submit" Margin="100,504,0,0" Grid.Row="1" VerticalAlignment="Top" Click="SubmitButton_Click" Width="100" Height="32" Grid.Column="1"/>
+        <ProgressBar x:Name="NoteCountBar" HorizontalAlignment="Center" Height="12" Margin="0,327,0,0" Grid.Row="1" VerticalAlignment="Top" Width="322" Grid.Column="1"/>
+        <ListView Grid.Row="1" Margin="58,23,82,399" ItemsSource="{x:Bind Notes}" SelectionChanged="ListView_SelectionChanged" Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:NoteData">
+                    <TextBlock Text="{x:Bind Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="RemoveButton" Content="Remove" Margin="0,504,100,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="32" Click="RemoveButton_Click" Grid.Column="1"/>
+    </Grid>
+</Page>

@@ -1,0 +1,1 @@
+C:\Users\kamil\source\repos\RaspberryHelloWorld\RaspberryHelloWorld\RaspberryHelloWorld.csproj;x86
